@@ -1,0 +1,3 @@
+# スクリプトは LF のまま取り出す。Windows 側の git で clone して WSL から実行しても壊れないように。
+* text=auto eol=lf
+*.png binary

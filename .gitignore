@@ -1,0 +1,19 @@
+# ビルド生成物
+/build/
+*.o
+*.so
+*.exe
+
+# 製品由来のファイルはリポジトリに入れない (README の「このリポジトリに含まれないもの」)
+/ICHITARO_LINUX*
+*.tar.xz
+*.iso
+*.jtd
+*.TTC
+*.TTF
+*.ttc
+*.ttf
+
+# インストール時の一時ファイル
+*.deb
+*.log

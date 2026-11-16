@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install toolchain
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends gcc-multilib shellcheck gcc-mingw-w64-i686
+      - name: Lint scripts
+        run: make lint
+      - name: Build launcher and shim
+        run: make CFLAGS="-O2 -Wall -Werror"
+      - name: Test launcher and shim (no product needed)
+        run: make check
+      - name: Build Wine probe
+        run: make probe
